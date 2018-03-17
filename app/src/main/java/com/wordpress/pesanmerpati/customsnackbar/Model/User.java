@@ -11,9 +11,9 @@ import java.util.List;
 public class User {
 
     @SerializedName("items")
-    private List<Items> items;
+    private List<Items> itemsList;
 
-    public List<Items> getItems() {
-        return items;
+    public List<Items> getItemsList() {
+        return itemsList;
     }
 }

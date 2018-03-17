@@ -1,4 +1,4 @@
-package com.wordpress.pesanmerpati.customsnackbar.Adapters;
+package com.wordpress.pesanmerpati.customsnackbar;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wordpress.pesanmerpati.customsnackbar.Model.Items;
-import com.wordpress.pesanmerpati.customsnackbar.R;
 
 import java.util.List;
 
@@ -22,11 +21,11 @@ import java.util.List;
 public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHolder> {
 
     private Context context;
-    private List<Items> items;
+    private List<Items> itemsList;
 
-    public ItemsAdapter(Context context, List<Items> items) {
+    public ItemsAdapter(Context context, List<Items> itemsList) {
         this.context = context;
-        this.items = items;
+        this.itemsList = itemsList;
     }
 
     @NonNull
@@ -41,15 +40,15 @@ public class ItemsAdapter extends RecyclerView.Adapter<ItemsAdapter.ItemsViewHol
     public void onBindViewHolder(@NonNull ItemsAdapter.ItemsViewHolder holder, int position) {
 
         Glide.with(context)
-                .load(items.get(position).getAvatar_url())
+                .load(itemsList.get(position).getAvatar_url())
                 .into(holder.mImageView_avatar);
-        holder.mTextView_username.setText(items.get(position).getUsername());
-        holder.mTextView_html_url.setText(items.get(position).getHtml_url());
+        holder.mTextView_username.setText(itemsList.get(position).getUsername());
+        holder.mTextView_html_url.setText(itemsList.get(position).getHtml_url());
     }
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return itemsList.size();
     }
 
     public class ItemsViewHolder extends RecyclerView.ViewHolder {
